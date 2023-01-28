@@ -12,11 +12,19 @@ The code in mylib.c contains two functions:
 
 # Code explanation for circular_rotation_right
 The code I wrote is an improvement to the code i wrote in the exam, which rotated the code right by 1 by swapping the first element of the array by the second element, then the third element, and so on until the end of the array
+## Old code:
 
 ![Screenshot (27)](https://user-images.githubusercontent.com/114073455/215250656-168373b7-ebbb-4dd7-b400-841c2bd1ca9c.png)
+
 The code here works by swapping the first element by the kth element, then the k * 2 th element, and so on. when the index gets large, I use the modulo of N to get the index to call.
 There is a problem with this algorithm, which is thatit breaks when encountering a specific case where k and N has a LCM of more than 1. This problem appears because half or more of the array is unreached. This is fixed by making a variable offset to switch between subarrays.
 For example if the array is {1, 2, 3, 4} is shifted by 2, the code has to shift the subarrays {1, 3} and {2, 4}.
+
+## New code:
+![Screenshot (30)](https://user-images.githubusercontent.com/114073455/215277991-d8d758af-f31d-447c-9c2f-7f6bb6ef2716.png)
+
+The code here optimizes (i * k + offset) % N so that i * k + offset never goes over N. This allows bigger arrays to be proccessed without causing a segmentation fault.
+
 
 # Compiling and running the code
 To run the code, simply run run.bat.
