@@ -16,7 +16,8 @@ int main(){
     printf("\nEnter the number of spaces to rotate the array to the right: ");
     int k;
     scanf("%d", &k);
-
+    printf("\nCurrent array:\n");
+    print_array(N, arr); 
     printf("\nShifted array printed manually:\n");
     printf("[");
     for(int i = 0; i < N - 1; i++){
