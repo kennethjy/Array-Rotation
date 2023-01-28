@@ -2,15 +2,15 @@
 
 void circular_rotation_right(int* arr, int N, int k){
     k = k % N;
-    int temp;
-    int offset = 0;
+    int temp, offset = 0, index = 0;
     for(int i = 1; i < N; i++){
-        if((i * k % N) == 0){
+        if((index % N) == 0){
             offset ++;
         }
+        index = (index + k) % N;
         temp = arr[offset];
-        arr[offset] = arr[(i * k + offset)%N];
-        arr[(i * k + offset)%N] = temp;
+        arr[offset] = arr[(index + offset) % N];
+        arr[(index + offset) % N] = temp;
     }
 }
 
